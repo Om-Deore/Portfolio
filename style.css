@@ -609,7 +609,153 @@ body {
 .reveal:nth-child(4) { transition-delay: .3s; }
 .reveal:nth-child(5) { transition-delay: .4s; }
 
-/* --- RESPONSIVE --- */
+/* --- ACADEMICS --- */
+.academics { background: var(--paper-cool); }
+
+.academics-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 780px;
+  margin-top: 8px;
+}
+
+.acad-card {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 0 24px;
+  position: relative;
+}
+
+.acad-card-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.acad-icon {
+  width: 52px; height: 52px;
+  background: var(--accent-light);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+  z-index: 1;
+  transition: background .25s, transform .2s;
+}
+
+.acad-icon--sm {
+  width: 44px; height: 44px;
+  background: var(--paper-warm);
+  border-color: rgba(15,14,13,.18);
+  color: var(--ink-mute);
+}
+
+.acad-timeline-line {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(to bottom, rgba(201,84,30,.3), rgba(15,14,13,.08));
+  margin: 6px 0;
+  min-height: 32px;
+}
+
+.acad-card-body {
+  background: var(--paper);
+  border: 1px solid rgba(15,14,13,.07);
+  border-radius: var(--radius-lg);
+  padding: 28px 30px;
+  margin-bottom: 20px;
+  transition: box-shadow .25s, transform .2s, border-color .25s;
+  cursor: default;
+}
+
+.acad-card:hover .acad-card-body {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+  border-color: rgba(201,84,30,.25);
+}
+
+.acad-card:hover .acad-icon {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.acad-card:hover .acad-icon--sm {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.acad-card--primary .acad-card-body {
+  background: var(--paper-cool);
+  border-color: rgba(201,84,30,.15);
+}
+
+.acad-card--last .acad-card-body { margin-bottom: 0; }
+
+.acad-badge {
+  font-family: var(--ff-mono);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  background: var(--accent-light);
+  border: 1px solid rgba(201,84,30,.2);
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.acad-badge--secondary {
+  color: var(--ink-mute);
+  background: var(--paper-warm);
+  border-color: rgba(15,14,13,.1);
+}
+
+.acad-degree {
+  font-family: var(--ff-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.acad-institution {
+  font-size: .95rem;
+  color: var(--ink-mute);
+  font-style: italic;
+  margin-bottom: 14px;
+}
+
+.acad-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.acad-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--ff-mono);
+  font-size: .76rem;
+  letter-spacing: .06em;
+  color: var(--ink-soft);
+}
+
+.acad-meta-item svg { color: var(--ink-mute); flex-shrink: 0; }
+
+.acad-score {
+  color: var(--accent-dark);
+  font-weight: 500;
+}
+.acad-score svg { color: var(--accent); }
+
+/* --- RESPONSIVE (academics) --- */
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 32px; }
   .project-card { grid-template-columns: 1fr; }
@@ -632,4 +778,9 @@ body {
   .hero-stat-strip { padding: 20px; }
   .project-body { padding: 28px 24px; }
   .scroll-hint { display: none; }
+  .acad-card { grid-template-columns: 40px 1fr; gap: 0 16px; }
+  .acad-icon { width: 40px; height: 40px; }
+  .acad-icon--sm { width: 34px; height: 34px; }
+  .acad-card-body { padding: 20px 18px; }
+  .acad-degree { font-size: 1.2rem; }
 }
