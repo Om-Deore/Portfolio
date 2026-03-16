@@ -75,12 +75,13 @@ body {
   background: rgba(248,245,240,0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(15,14,13,.08);
+  height: var(--nav-h);
   transition: box-shadow .3s;
 }
 .nav.scrolled { box-shadow: 0 2px 20px rgba(15,14,13,.1); }
 .nav-inner {
   max-width: 1100px; margin: 0 auto; padding: 0 32px;
-  height: var(--nav-h);
+  height: 100%;
   display: flex; align-items: center; gap: 32px;
 }
 .nav-logo {
@@ -381,10 +382,11 @@ body {
 .gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .gallery-item {
   position: relative; overflow: hidden; border-radius: var(--radius-lg);
-  min-height: 220px; background: var(--paper-warm); border: 1px solid rgba(15,14,13,.07);
+  background: var(--paper-warm); border: 1px solid rgba(15,14,13,.07);
+  aspect-ratio: 4 / 3;
 }
-.gallery-item--wide { grid-column: span 2; min-height: 300px; }
-.gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+.gallery-item--wide { grid-column: span 2; aspect-ratio: 16 / 9; }
+.gallery-item img { width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; transition: transform .4s; }
 .gallery-item:hover img { transform: scale(1.03); }
 .gallery-placeholder { display: flex; align-items: center; justify-content: center; }
 .gallery-placeholder::before { content: '[ screenshot placeholder ]'; font-family: var(--ff-mono); font-size: .72rem; letter-spacing: .1em; color: var(--ink-mute); }
@@ -472,7 +474,8 @@ body {
   .github-card { grid-template-columns: 1fr; gap: 40px; }
   .contact-cards { grid-template-columns: 1fr; max-width: 360px; }
   .gallery-grid { grid-template-columns: 1fr; }
-  .gallery-item--wide { grid-column: span 1; }
+  .gallery-item--wide { grid-column: span 1; aspect-ratio: 16 / 9; }
+  .gallery-item { aspect-ratio: 16 / 9; }
   .hero-stat-strip { gap: 24px; }
   .stat-divider { display: none; }
 }
