@@ -5,10 +5,14 @@
 (function () {
   'use strict';
 
+  document.addEventListener('DOMContentLoaded', function () {
+
   /* --- NAV: sticky shadow + hamburger --- */
   const nav = document.getElementById('nav');
   const hamburger = document.getElementById('hamburger');
   const navMobile = document.getElementById('nav-mobile');
+
+  if (!hamburger || !navMobile) return;
 
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 20);
@@ -111,4 +115,5 @@
   window.addEventListener('load', triggerHeroReveal);
   setTimeout(triggerHeroReveal, 300);
 
+  }); // end DOMContentLoaded
 })();
